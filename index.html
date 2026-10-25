@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="apple-mobile-web-app-title" content="Halcyon">
+<meta name="apple-mobile-web-app-title" content="Schläfer">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -12,7 +12,7 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);box-sizing:border-box}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Halcyon Drift</title>
+<title>Der achte Schläfer</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -158,7 +158,7 @@ form.prompt button {
   nav.tabs button { font-size: 17px; padding: 6px 7px 4px; letter-spacing: .06em; }
   .lang button { font-size: 17px; padding: 2px 8px; }
   #log { font-size: 20px; }
-  #log p.title { font-size: 42px; }
+  #log p.title { font-size: 36px; letter-spacing: .08em; }
   .status { font-size: 18px; }
 }
 @media (prefers-reduced-motion: reduce) { .fresh { animation: none; } }
@@ -341,7 +341,7 @@ table.moves td .o { color: var(--frost); font-style: italic; }
     <div class="doc" data-l="en">
       <h2>MANUAL</h2>
       <div class="meta">How to talk to the ship's computer</div>
-      <p>Halcyon Drift is an interactive story in the tradition of the text adventures of the 1980s. You read what happens, then type what you do next: usually a verb and a noun. The ship understands English and German commands, whichever language is shown.</p>
+      <p>The Eighth Sleeper is an interactive story in the tradition of the text adventures of the 1980s. You read what happens, then type what you do next: usually a verb and a noun. The ship understands English and German commands, whichever language is shown.</p>
       <table>
         <tr><td>Move</td><td><code>NORTH</code> <code>SOUTH</code> <code>EAST</code> <code>WEST</code> <code>UP</code> <code>DOWN</code> <code>IN</code> <code>OUT</code> or just <code>N</code> <code>S</code> <code>E</code> <code>W</code> <code>U</code> <code>D</code></td></tr>
         <tr><td>Look</td><td><code>LOOK</code> describes the room. <code>EXAMINE LOCKER</code> or <code>X LOCKER</code> looks closer.</td></tr>
@@ -371,7 +371,7 @@ table.moves td .o { color: var(--frost); font-style: italic; }
     <div class="doc" data-l="de">
       <h2>HANDBUCH</h2>
       <div class="meta">So sprichst du mit dem Bordcomputer</div>
-      <p>Halcyon Drift ist eine interaktive Geschichte in der Tradition der Textadventures der 1980er-Jahre. Du liest, was passiert, und tippst dann ein, was du als Nächstes tust: meistens ein Verb und ein Hauptwort. Das Schiff versteht deutsche und englische Befehle, egal welche Sprache gerade angezeigt wird.</p>
+      <p>Der achte Schläfer ist eine interaktive Geschichte in der Tradition der Textadventures der 1980er-Jahre. Du liest, was passiert, und tippst dann ein, was du als Nächstes tust: meistens ein Verb und ein Hauptwort. Das Schiff versteht deutsche und englische Befehle, egal welche Sprache gerade angezeigt wird.</p>
       <table>
         <tr><td>Bewegen</td><td><code>NORDEN</code> <code>SÜDEN</code> <code>OSTEN</code> <code>WESTEN</code> <code>HOCH</code> <code>RUNTER</code> <code>REIN</code> <code>RAUS</code> oder kurz <code>N</code> <code>S</code> <code>O</code> <code>W</code> <code>H</code> <code>R</code></td></tr>
         <tr><td>Umsehen</td><td><code>SCHAU</code> beschreibt den Raum. <code>UNTERSUCHE SPIND</code> oder <code>X SPIND</code> sieht genauer hin.</td></tr>
@@ -1409,7 +1409,7 @@ function createGame(io) {
     s.over = 'won';
     score();
     if (s.score < MAX) { const miss = []; if (!s.scored.distress) miss.push(L('a message home', 'eine Nachricht nach Hause')); if (!s.scored.coffee) miss.push(L('a coffee for someone who needed it', 'ein Kaffee für jemanden, der ihn brauchte')); if (!s.scored.truth) miss.push(L('the truth about the sabotage', 'die Wahrheit über die Sabotage')); say(L("There was still something left to do" + (miss.length ? ": " + miss.map(x => x.en).join(', ') : "") + ". Type UNDO or RESTART to try for a perfect score.", "Es gab noch etwas zu tun" + (miss.length ? ": " + miss.map(x => x.de).join(', ') : "") + ". Tippe ZURÜCK oder NEUSTART, um die volle Punktzahl zu holen."), 'sys'); }
-    else say(L("A perfect score. Thank you for playing HALCYON DRIFT.", "Volle Punktzahl. Danke, dass du HALCYON DRIFT gespielt hast."), 'sys');
+    else say(L("A perfect score. Thank you for playing THE EIGHTH SLEEPER.", "Volle Punktzahl. Danke, dass du DER ACHTE SCHLÄFER gespielt hast."), 'sys');
   }
 
   // ---------------------------------------------------------------- DISPATCH
@@ -1605,10 +1605,10 @@ function createGame(io) {
   function start(restart) {
     s = fresh(); undo = [];
     if (restart) say(L("[Restarting.]", "[Neustart.]"), 'sys');
-    say("HALCYON DRIFT", 'title');
+    say(L("THE EIGHTH SLEEPER", "DER ACHTE SCHLÄFER"), 'title');
     say(L("Idea and concept: Kai Sonnet, 2026 · built with Claude", "Idee und Konzept: Kai Sonnet, 2026 · umgesetzt mit Claude"), 'sys');
-    say(L("An Interactive Science Fiction\nRelease 8 / Serial number 261025\nType HELP if you're stuck on how to play, HINT if you're stuck on what to do.",
-          "Eine interaktive Science-Fiction-Geschichte\nRelease 8 / Seriennummer 261025\nTippe HILFE, wenn du nicht weißt, wie man spielt, und TIPP, wenn du nicht weißt, was zu tun ist."), 'sys');
+    say(L("An Interactive Science Fiction\nRelease 10 / Serial number 261025\nType HELP if you're stuck on how to play, HINT if you're stuck on what to do.",
+          "Eine interaktive Science-Fiction-Geschichte\nRelease 10 / Seriennummer 261025\nTippe HILFE, wenn du nicht weißt, wie man spielt, und TIPP, wenn du nicht weißt, was zu tun ist."), 'sys');
     say(L("Your pod's lid lifts with a hiss and a gust of frost. A recorded voice says, 'Battery failure. Emergency revival complete. Welcome back, Engineer Corrigan.' Nobody else says anything at all.\n\nYou climb out shivering. The deck is cold. The ship is quiet in the wrong way.",
           "Der Deckel deiner Kapsel hebt sich mit einem Zischen und einem Schwall Frost. Eine aufgezeichnete Stimme sagt: „Batterieausfall. Notfallerweckung abgeschlossen. Willkommen zurück, Ingenieur Corrigan.“ Sonst sagt niemand etwas.\n\nZitternd kletterst du heraus. Der Boden ist kalt. Das Schiff ist auf die falsche Art still."));
     describe();
@@ -1682,8 +1682,8 @@ if (typeof module !== 'undefined') module.exports = { createGame };
     const ids = ORDER.map((k, i) => (st.scored[k] ? i + 1 : null)).filter(Boolean).join(',');
     const now = new Date();
     const head = lang === 'de'
-      ? ['HALCYON DRIFT - SKRIPT', `Release 8 · exportiert am ${now.toLocaleString('de-DE')}`, `Orbit: ${ORBNAME[opts.orbit].de} · Karte: ${opts.map ? 'an' : 'aus'}`, `Aktueller Stand: ${R2[st.loc].name.de}, ${st.score}/100 Punkte, ${st.moves} ${st.moves === 1 ? 'Zug' : 'Züge'}`, '----------------------------------------']
-      : ['HALCYON DRIFT - SCRIPT', `Release 8 · exported ${now.toLocaleString('en-GB')}`, `Orbit: ${ORBNAME[opts.orbit].en} · Map: ${opts.map ? 'on' : 'off'}`, `Current state: ${R2[st.loc].name.en}, ${st.score}/100 points, ${st.moves} ${st.moves === 1 ? 'move' : 'moves'}`, '----------------------------------------'];
+      ? ['DER ACHTE SCHLÄFER - SKRIPT', `Release 10 · exportiert am ${now.toLocaleString('de-DE')}`, `Orbit: ${ORBNAME[opts.orbit].de} · Karte: ${opts.map ? 'an' : 'aus'}`, `Aktueller Stand: ${R2[st.loc].name.de}, ${st.score}/100 Punkte, ${st.moves} ${st.moves === 1 ? 'Zug' : 'Züge'}`, '----------------------------------------']
+      : ['THE EIGHTH SLEEPER - SCRIPT', `Release 10 · exported ${now.toLocaleString('en-GB')}`, `Orbit: ${ORBNAME[opts.orbit].en} · Map: ${opts.map ? 'on' : 'off'}`, `Current state: ${R2[st.loc].name.en}, ${st.score}/100 points, ${st.moves} ${st.moves === 1 ? 'move' : 'moves'}`, '----------------------------------------'];
     const body = scriptLog.map(([c, en, de]) => {
       const txt = lang === 'de' && de !== undefined ? de : en;
       if (c === 'cmd') return '\n> ' + txt;
@@ -1730,6 +1730,7 @@ if (typeof module !== 'undefined') module.exports = { createGame };
     try { localStorage.setItem(LKEY, l); } catch (e) {}
     document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l ? 'true' : 'false'));
     input.placeholder = l === 'de' ? 'Was tust du?' : 'What do you do?';
+    document.title = l === 'de' ? 'Der achte Schläfer' : 'The Eighth Sleeper';
     for (const p of log.children) { p.classList.remove('flipped'); delete p.dataset.flip; paint(p); }
     if (lastStatus) io.status(lastStatus);
     if (typeof renderMap === 'function' && !document.getElementById('map').hidden) renderMap();

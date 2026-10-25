@@ -1,7 +1,7 @@
 {
-  "name": "Halcyon Drift",
-  "short_name": "Halcyon",
-  "description": "A 1980s-style science fiction text adventure in German and English.",
+  "name": "Der achte Schläfer",
+  "short_name": "Schläfer",
+  "description": "Ein Science-Fiction-Textadventure im Stil der 1980er, auf Deutsch und Englisch.",
   "lang": "de",
   "start_url": "./",
   "scope": "./",
